@@ -78,6 +78,9 @@ public struct Head: HTMLRootElement {
             MetaLink.iconCSS
         }
 
+        //FIXME: - Update to conditional.
+        MetaLink.customCSS
+        
         MetaLink(href: page.url, rel: "canonical")
 
         if let favicon = context.site.favicon {

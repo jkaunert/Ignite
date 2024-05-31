@@ -18,6 +18,9 @@ public struct MetaLink: HeadElement {
 
     /// The standard CSS you should include on all pages that use syntax highlighting.
     public static let syntaxHighlightingCSS = MetaLink(href: "/css/prism-default-dark.css", rel: "stylesheet")
+    
+    /// A Custom CSS file to include on all Ignite pages
+    public static let customCSS = MetaLink(href: "/css/custom.css", rel: "stylesheet")
 
     /// The standard set of control attributes for HTML elements.
     public var attributes = CoreAttributes()
