@@ -79,7 +79,7 @@ public struct Head: HTMLRootElement {
         }
 
         /// Checks if there are any `String`s present in `Site.customCSS` array
-        let customNames: [String] = Array(Set(context.site.customCSS)).map { $0.lowercased()}
+        let customNames: [String] = Array(Set(context.site.customCSS.map { $0.lowercased()}))
             if (customNames.filter { $0.isEmpty == false }).isEmpty == false {
                 /// If the array is not empty, we iterate over the array and add a `MetaLink` for each one pointing to a file of the same name in the `Build.css` folder.
                 /// NOTE: - the actual `.css` files are not created until they
