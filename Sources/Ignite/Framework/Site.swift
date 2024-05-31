@@ -65,6 +65,9 @@ public protocol Site {
     /// other built-in elements regardless of the setting here.
     var markdownRenderer: MarkdownRendererType.Type { get }
 
+    /// An array of strings names for any custom css files so that links will be added to the Head of each page. The default is an empty array.
+    var customCSS: [String] { get }
+    
     /// Controls how the RSS feed for your site should be generated. The default
     /// configuration sends back content description only for 20 items.
     var feedConfiguration: FeedConfiguration { get }
@@ -128,6 +131,10 @@ extension Site {
         MarkdownToHTML.self
     }
 
+    /// Default is an empty array, and no links will be added to Head, even if there are custom css files present in the Assets and/or Build folders.
+    public var customCSS: [String] {
+        []
+    }
     /// A default feed configuration allows 20 items of content, showing just
     /// their descriptions.
     public var feedConfiguration: FeedConfiguration { .default }
