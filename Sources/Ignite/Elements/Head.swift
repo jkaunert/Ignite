@@ -79,21 +79,16 @@ public struct Head: HTMLRootElement {
         }
 
         /// Checks if there are any `String`s present in `Site.customCSS` array
-        if context.site.customCSS.isEmpty == false {
-            /// prepare the array by removing any empty or duplicate strings
-            let customNames: [String] = context.site.customCSS.map { $0.lowercased() }
-            let deduped = Array(Set(customNames))
-            deduped.filter { $0.isEmpty == false }
-            if deduped.isEmpty == false {
+            let customNames: [String] = Array(Set(context.site.customCSS))
+            if (customNames.filter { $0.isEmpty == false }).isEmpty == false {
                 /// If the array is not empty, we iterate over the array and add a `MetaLink` for each one pointing to a file of the same name in the `Build.css` folder.
                 /// NOTE: - the actual `.css` files are not created until they
                 /// are placed into the Assets folder and the project is built, and thier contents are copied over to the `Build` folder
-                for filename in deduped {
-
+                for filename in customNames {
                     MetaLink(href: "/css/\(filename).css", rel: "stylesheet")
                 }
             }
-        }
+        
         
         MetaLink(href: page.url, rel: "canonical")
 

@@ -131,7 +131,7 @@ extension Site {
         MarkdownToHTML.self
     }
 
-    /// Default is an empty array, and no links will be added to Head, even if there are custom css files present in the Assets and/or Build folders.
+    /// Default is an empty array, meaning no links will be added to Head, even if there are custom css files present in the Assets and/or Build folders.
     public var customCSS: [String] {
         []
     }
