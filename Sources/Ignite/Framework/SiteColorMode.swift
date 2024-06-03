@@ -10,4 +10,5 @@ import Foundation
 public enum SiteColorMode: String {
     case dark
     case light
+    case auto
 }
