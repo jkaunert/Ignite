@@ -5,6 +5,7 @@
 // See LICENSE for license information.
 //
 
+
 import Foundation
 
 /// Describes elements that can be placed into navigation bars.
@@ -13,18 +14,6 @@ public protocol NavigationItem: InlineElement { }
 /// A bar that sits across the top of your page to provide top-level navigation
 /// throughout your site.
 public struct NavigationBar: BlockElement {
-    /// The color scheme for this navigation bar.
-    public enum NavigationBarStyle {
-        /// No specific color scheme means this bar will be rendered using
-        /// automatic settings.
-        case `default`
-
-        /// This bar must always be rendered in light mode.
-        case light
-
-        /// This bar must always be rendered in dark mode.
-        case dark
-    }
 
     /// How navigation bar items should be aligned horizontally.
     public enum ItemAlignment: String {
@@ -52,7 +41,7 @@ public struct NavigationBar: BlockElement {
     let items: [NavigationItem]
 
     /// The style to use when rendering this bar.
-    var style = NavigationBarStyle.default
+    var style = ColorScheme.default
 
     /// How items in this navigation bar should be aligned
     var itemAlignment = ItemAlignment.default
@@ -84,11 +73,11 @@ public struct NavigationBar: BlockElement {
     /// Adjusts the style of this navigation bar.
     /// - Parameter style: The new style.
     /// - Returns: A new `NavigationBar` instance with the updated style.
-    public func navigationBarStyle(_ style: NavigationBarStyle) -> Self {
-        var copy = self
-        copy.style = style
-        return copy
-    }
+//    public func navigationBarStyle(_ style: ColorScheme) -> Self {
+//        var copy = self
+//        copy.style = style
+//        return copy
+//    }
 
     /// Adjusts the number of columns assigned to the items in the navigation bar.
     /// It does not have an effect on the navigation bar itself.
@@ -109,13 +98,13 @@ public struct NavigationBar: BlockElement {
         return copy
     }
 
-    func theme(for style: NavigationBarStyle) -> String? {
-        switch style {
-        case .default: nil
-        case .light: "light"
-        case .dark: "dark"
-        }
-    }
+//    func theme(for style: ColorScheme) -> String? {
+//        switch style {
+//        case .default: "auto"
+//        case .light: "light"
+//        case .dark: "dark"
+//        }
+//    }
 
     /// Renders this element using publishing context passed in.
     /// - Parameter context: The current publishing context.
@@ -148,7 +137,7 @@ public struct NavigationBar: BlockElement {
                                         dropdownItem.configuredAsNavigationItem()
                                     }
                                     .class("nav-item", "dropdown")
-                                    .data("bs-theme", "light")
+//                                    .data("bs-theme", "auto")
                                 } else if let link = item as? Link {
                                     ListItem {
                                         let isActive = context.currentRenderingPath == link.url
@@ -171,7 +160,7 @@ public struct NavigationBar: BlockElement {
             }
             .attributes(attributes)
             .class("navbar", "navbar-expand-md")
-            .data("bs-theme", theme(for: style))
+//            .data("bs-theme", theme(for: style))
         }
         .render(context: context)
     }

@@ -7,8 +7,20 @@
 
 import Foundation
 
-public enum SiteColorMode: String {
-    case dark
+/// The color scheme for this navigation bar.
+public enum ColorScheme: String {
+    /// No specific color scheme means this bar will be rendered using
+    /// automatic settings.
+    case `default` = "auto"
+
+    /// This bar must always be rendered in light mode.
     case light
-    case auto
+
+    /// This bar must always be rendered in dark mode.
+    case dark
 }
+
+//public enum SiteColorMode: String {
+//    case dark
+//    case light
+//}

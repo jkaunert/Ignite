@@ -87,8 +87,8 @@ public protocol Site {
     /// explicitly override the theme with something custom.
     var theme: ThemeType { get }
 
-    /// The color mode to apply to the site, default is auto mode
-    var colorMode: SiteColorMode { get }
+    /// The color mode to apply to the site, default is light mode
+    var colorMode: ColorScheme { get }
 
     /// The path to the favicon
     var favicon: URL? { get }
@@ -158,7 +158,7 @@ extension Site {
     public var tagPage: EmptyTagPage { EmptyTagPage() }
 
     /// The default color mode being auto
-    public var colorMode: SiteColorMode { .auto }
+    public var colorMode: ColorScheme { .default }
 
     /// The default favicon being nil
     public var favicon: URL? { nil }
