@@ -8,7 +8,7 @@
 import Foundation
 
 /// The color scheme for this navigation bar.
-public enum ColorScheme: String {
+public enum ColorMode: String {
     /// No specific color scheme means this bar will be rendered using
     /// automatic settings.
     case `default` = "auto"

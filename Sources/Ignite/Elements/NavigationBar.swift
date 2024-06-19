@@ -41,7 +41,7 @@ public struct NavigationBar: BlockElement {
     let items: [NavigationItem]
 
     /// The style to use when rendering this bar.
-    var style = ColorScheme.default
+    var style = ColorMode.default
 
     /// How items in this navigation bar should be aligned
     var itemAlignment = ItemAlignment.default
@@ -73,7 +73,7 @@ public struct NavigationBar: BlockElement {
     /// Adjusts the style of this navigation bar.
     /// - Parameter style: The new style.
     /// - Returns: A new `NavigationBar` instance with the updated style.
-//    public func navigationBarStyle(_ style: ColorScheme) -> Self {
+//    public func navigationBarStyle(_ style: ColorMode) -> Self {
 //        var copy = self
 //        copy.style = style
 //        return copy
@@ -98,7 +98,7 @@ public struct NavigationBar: BlockElement {
         return copy
     }
 
-//    func theme(for style: ColorScheme) -> String? {
+//    func theme(for style: ColorMode) -> String? {
 //        switch style {
 //        case .default: "auto"
 //        case .light: "light"
